@@ -41,3 +41,13 @@ def update_todo(todo_id: int, title: str):
     todo['title'] = title
 
     return {"id": todo['id'], "title": todo['title']}
+
+
+@app.delete("/todos/{todo_id}")
+def delete_todo(todo_id: int):
+    todo = next(key for key in todos if key['id'] == todo_id)
+    todos.remove(todo)
+
+    print(todos)
+
+    return {"message": "The todo was deleted"}
