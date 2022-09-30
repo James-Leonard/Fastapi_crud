@@ -8,11 +8,11 @@ app = FastAPI()
 
 todos = [
     {
-        'id': 1
+        'id': 1,
         'title': 'The first task',
     },
     {
-        'id': 2
+        'id': 2,
         'title': 'The second task'
     }
 ]
@@ -35,6 +35,9 @@ def add_todo(title: str):
     return {"id": id, "title": title}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.put("/todos/{todo_id}")
+def update_todo(todo_id: int, title: str):
+    todo = next(key for key in todos if key['id'] == todo_id)
+    todo['title'] = title
+
+    return {"id": todo['id'], "title": todo['title']}
