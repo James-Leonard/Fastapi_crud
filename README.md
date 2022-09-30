@@ -26,24 +26,34 @@ This package is intended for use with any recent version of FastAPI and Python 3
 
 ## Installation for Linux(Ubuntu)
 <p>create virtual environment</p>
+
 ```
 mkvirtualenv fastapi_env
+
 ```
+
 <p>activate virtual environment</p>
+
 ```
 workon fastapi_env
 ```
+
 ```
 pip install -r requirements.txt
 ```
+
 <h1>OR</h1>
+
 ```
 pip install fastapi
 ```
+
 ```
 pip install "uvicorn[standard]"
 ```
+
 <p> then Run server</p>
+
 ```
 uvicorn main:app --reload
 ```
